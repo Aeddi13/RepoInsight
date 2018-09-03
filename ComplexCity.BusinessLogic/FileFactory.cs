@@ -20,7 +20,9 @@ namespace Complexity.BusinessLogic
             {
                 string fileContent = System.IO.File.ReadAllText(fileName);
 
-                int lineCount = fileContent.Split('\n').Length;
+                string[] lines = fileContent.Split('\n');
+
+                int lineCount = lines.Length;
                 int leadingWhitespaceCount = 0;
 
                 File file = new File()
