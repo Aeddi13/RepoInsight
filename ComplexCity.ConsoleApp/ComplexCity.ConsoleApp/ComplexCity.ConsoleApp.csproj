@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ComplexCity.BusinessLogic\Complexity.BusinessLogic.csproj" />
+    <ProjectReference Include="..\..\ComplexCity.BusinessLogic\ComplexCity.BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>

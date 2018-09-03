@@ -1,4 +1,4 @@
-﻿namespace Complexity.BusinessLogic
+﻿namespace ComplexCity.BusinessLogic
 {
     /// <summary>
     /// Represents a file that has been read from the file system.

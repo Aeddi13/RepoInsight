@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace Complexity.BusinessLogic
+namespace ComplexCity.BusinessLogic
 {
     /// <summary>
     /// Creates instances of the <see cref="FileInfo"/> class.
@@ -13,7 +13,7 @@ namespace Complexity.BusinessLogic
             List<FileInfo> files = new List<FileInfo>();
 
             // Put all file names in the directory into array.
-            string[] fileNames = Directory.GetFiles(@directoryPath);
+            string[] fileNames = Directory.GetFiles(directoryPath);
             foreach (string fileName in fileNames)
             {
                 string fileContent = File.ReadAllText(fileName);

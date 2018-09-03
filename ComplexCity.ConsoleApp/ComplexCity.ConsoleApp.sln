@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplexCity.ConsoleApp", "ComplexCity.ConsoleApp\ComplexCity.ConsoleApp.csproj", "{65ECC317-11F1-4985-B9BC-AACC08169A2A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Complexity.BusinessLogic", "..\ComplexCity.BusinessLogic\Complexity.BusinessLogic.csproj", "{306CB4A1-8527-43E9-937A-B75F6F088A48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplexCity.BusinessLogic", "..\ComplexCity.BusinessLogic\ComplexCity.BusinessLogic.csproj", "{306CB4A1-8527-43E9-937A-B75F6F088A48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

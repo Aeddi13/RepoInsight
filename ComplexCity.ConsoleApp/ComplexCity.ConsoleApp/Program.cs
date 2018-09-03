@@ -1,5 +1,5 @@
 ﻿using System;
-using Complexity.BusinessLogic;
+using ComplexCity.BusinessLogic;
 
 namespace ComplexCity.ConsoleApp
 {
