@@ -8,32 +8,49 @@ namespace ComplexCity.BusinessLogic
     /// </summary>
     public class FileFactory
     {
-        public static FileInfo[] CreateFilesForDirectory(string directoryPath)
+        public static FileInfo[] CreateFilesForDirectory(string directoryPath, bool includeSubdirectories = true)
         {
-            List<FileInfo> files = new List<FileInfo>();
+            List<FileInfo> fileInfos = new List<FileInfo>();
 
-            // Put all file names in the directory into array.
+            // Put all file names in the current directory into an array.
             string[] fileNames = Directory.GetFiles(directoryPath);
             foreach (string fileName in fileNames)
             {
-                string fileContent = File.ReadAllText(fileName);
+                FileInfo fileInfo = FileFactory.CreateFileInfo(fileName);
 
-                string[] lines = fileContent.Split('\n');
-
-                int lineCount = lines.Length;
-                int leadingWhitespaceCount = 0;
-
-                FileInfo fileInfo = new FileInfo()
-                {
-                    LinesOfCode = lineCount,
-                    FileName = fileName,
-                    NumberOfLeadingSpaces = leadingWhitespaceCount
-                };
-
-                files.Add(fileInfo);
+                fileInfos.Add(fileInfo);
             }
 
-            return files.ToArray();
+            // add the fielInfos from the subdirectories
+            if (includeSubdirectories)
+            {
+                string[] subdirectories = Directory.GetDirectories(directoryPath);
+                foreach (string directory in subdirectories)
+                {
+                    fileInfos.AddRange(FileFactory.CreateFilesForDirectory(directory, includeSubdirectories));
+                }
+            }
+
+            return fileInfos.ToArray();
+        }
+
+        private static FileInfo CreateFileInfo(string fileName)
+        {
+            string fileContent = File.ReadAllText(fileName);
+
+            string[] lines = fileContent.Split('\n');
+
+            int lineCount = lines.Length;
+            int leadingWhitespaceCount = 0;
+
+            FileInfo fileInfo = new FileInfo()
+            {
+                LinesOfCode = lineCount,
+                FileName = fileName,
+                NumberOfLeadingSpaces = leadingWhitespaceCount
+            };
+
+            return fileInfo;
         }
     }
 }
