@@ -20,5 +20,14 @@
         /// 1 Tab counts as 4 whitespaces;
         /// </summary>
         public int NumberOfLeadingSpaces;
+
+        /// <summary>
+        /// Gets the <see cref="NumberOfLeadingSpaces"/> divided by the <see cref="LinesOfCode"/>.
+        /// </summary>
+        /// <returns>The Leading spaces per Line of code.</returns>
+        public double GetLeadingSpacesPerLine()
+        {
+            return ((double)NumberOfLeadingSpaces) / ((double)LinesOfCode);
+        }
     }
 }

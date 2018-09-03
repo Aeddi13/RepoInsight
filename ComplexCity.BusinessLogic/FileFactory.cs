@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace ComplexCity.BusinessLogic
 {
@@ -21,7 +23,7 @@ namespace ComplexCity.BusinessLogic
                 fileInfos.Add(fileInfo);
             }
 
-            // add the fielInfos from the subdirectories
+            // add the fileInfos from the subdirectories
             if (includeSubdirectories)
             {
                 string[] subdirectories = Directory.GetDirectories(directoryPath);
@@ -42,6 +44,17 @@ namespace ComplexCity.BusinessLogic
 
             int lineCount = lines.Length;
             int leadingWhitespaceCount = 0;
+
+            foreach (string line in lines)
+            {
+                //TODO: check if line is a comment
+
+                // replace tabs with 4 whitespaces
+                string lineValue = line.Replace(Convert.ToChar(9).ToString(), "    ");
+
+                int leadingSpaces = lineValue.TakeWhile(Char.IsWhiteSpace).Count();
+                leadingWhitespaceCount += leadingSpaces;
+            }
 
             FileInfo fileInfo = new FileInfo()
             {
