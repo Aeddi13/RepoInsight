@@ -8,7 +8,7 @@ namespace ComplexCity.ConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            FileInfo[] fileInfos = FileFactory.CreateFilesForDirectory("E:\\Aeddimedia\\Development\\MealPlanner\\Server\\src");
+            FileInfo[] fileInfos = FileInfoFactory.CreateFilesForDirectory("E:\\Aeddimedia\\Development\\MealPlanner\\Server\\src");
 
             foreach (FileInfo fileInfo in fileInfos)
             {

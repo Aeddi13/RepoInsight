@@ -8,7 +8,7 @@ namespace ComplexCity.BusinessLogic
     /// <summary>
     /// Creates instances of the <see cref="FileInfo"/> class.
     /// </summary>
-    public class FileFactory
+    public class FileInfoFactory
     {
         public static FileInfo[] CreateFilesForDirectory(string directoryPath, bool includeSubdirectories = true)
         {
@@ -18,7 +18,7 @@ namespace ComplexCity.BusinessLogic
             string[] fileNames = Directory.GetFiles(directoryPath);
             foreach (string fileName in fileNames)
             {
-                FileInfo fileInfo = FileFactory.CreateFileInfo(fileName);
+                FileInfo fileInfo = FileInfoFactory.CreateFileInfo(fileName);
 
                 fileInfos.Add(fileInfo);
             }
@@ -29,7 +29,7 @@ namespace ComplexCity.BusinessLogic
                 string[] subdirectories = Directory.GetDirectories(directoryPath);
                 foreach (string directory in subdirectories)
                 {
-                    fileInfos.AddRange(FileFactory.CreateFilesForDirectory(directory, includeSubdirectories));
+                    fileInfos.AddRange(FileInfoFactory.CreateFilesForDirectory(directory, includeSubdirectories));
                 }
             }
 
