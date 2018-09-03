@@ -1,38 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace Complexity.BusinessLogic
 {
     /// <summary>
-    /// Creates instances of the <see cref="File"/> class.
+    /// Creates instances of the <see cref="FileInfo"/> class.
     /// </summary>
     public class FileFactory
     {
-        public static File[] CreateFilesForDirectory(string directoryPath)
+        public static FileInfo[] CreateFilesForDirectory(string directoryPath)
         {
-            List<File> files = new List<File>();
+            List<FileInfo> files = new List<FileInfo>();
 
             // Put all file names in the directory into array.
             string[] fileNames = Directory.GetFiles(@directoryPath);
             foreach (string fileName in fileNames)
             {
-                string fileContent = System.IO.File.ReadAllText(fileName);
+                string fileContent = File.ReadAllText(fileName);
 
                 string[] lines = fileContent.Split('\n');
 
                 int lineCount = lines.Length;
                 int leadingWhitespaceCount = 0;
 
-                File file = new File()
+                FileInfo fileInfo = new FileInfo()
                 {
                     LinesOfCode = lineCount,
                     FileName = fileName,
                     NumberOfLeadingSpaces = leadingWhitespaceCount
                 };
 
-                files.Add(file);
+                files.Add(fileInfo);
             }
 
             return files.ToArray();

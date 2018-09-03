@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a file that has been read from the file system.
     /// </summary>
-    public class File
+    public class FileInfo
     {
         /// <summary>
         /// The name of the file.

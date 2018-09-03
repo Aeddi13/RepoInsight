@@ -8,13 +8,13 @@ namespace ComplexCity.ConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            File[] files = FileFactory.CreateFilesForDirectory("D:\\temp");
+            FileInfo[] fileInfos = FileFactory.CreateFilesForDirectory("D:\\temp");
 
-            foreach (File file in files)
+            foreach (FileInfo fileInfo in fileInfos)
             {
-                Console.Write(file.FileName);
-                Console.Write(" | lines of code: " + file.LinesOfCode);
-                Console.WriteLine(" | number of leading spaces: " + file.NumberOfLeadingSpaces);
+                Console.Write(fileInfo.FileName);
+                Console.Write(" | lines of code: " + fileInfo.LinesOfCode);
+                Console.WriteLine(" | number of leading spaces: " + fileInfo.NumberOfLeadingSpaces);
             }
 
             Console.ReadLine();
