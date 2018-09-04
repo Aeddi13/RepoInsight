@@ -58,5 +58,50 @@ namespace ComplexCity.BusinessLogic.Test
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        [TestMethod]
+        public void WhenComparingFileInfosByLinesOfCode_AndXisGreaterThanY_ThenItReturnPositiveValue()
+        {
+            // Arrange
+            const int expectedValue = 1;
+            FileInfo xValue = new FileInfo() { LinesOfCode = 20};
+            FileInfo YValue = new FileInfo() { LinesOfCode = 10};
+
+            // Act
+            int actualValue = FileInfoSortHelper.CompareFileInfosByLinesOfCode(xValue, YValue);
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void WhenComparingFileInfosByLinesOfCode_AndXisSmallerThanY_ThenItShouldReturnNegativeValue()
+        {
+            // Arrange
+            const int expectedValue = -1;
+            FileInfo xValue = new FileInfo() { LinesOfCode = 10};
+            FileInfo YValue = new FileInfo() { LinesOfCode = 15};
+
+            // Act
+            int actualValue = FileInfoSortHelper.CompareFileInfosByLinesOfCode(xValue, YValue);
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void WhenComparingFileInfosByLinesOfCode_AndXisEqualToY_ThenItShouldReturn0()
+        {
+            // Arrange
+            const int expectedValue = 0;
+            FileInfo xValue = new FileInfo() { LinesOfCode = 10};
+            FileInfo YValue = new FileInfo() { LinesOfCode = 10};
+
+            // Act
+            int actualValue = FileInfoSortHelper.CompareFileInfosByLinesOfCode(xValue, YValue);
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }
