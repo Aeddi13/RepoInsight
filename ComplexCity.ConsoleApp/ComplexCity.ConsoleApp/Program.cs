@@ -7,8 +7,12 @@ namespace ComplexCity.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            FileInfo[] fileInfos = FileInfoFactory.CreateFilesForDirectory("E:\\Aeddimedia\\Development\\MealPlanner\\Server\\src");
+            string directoryPath = "E:\\Aeddimedia\\Development\\MealPlanner\\Server\\src";
+
+            string headerMessage = String.Format("Checking files for directory {0}", directoryPath);
+            Console.WriteLine(headerMessage);
+
+            FileInfo[] fileInfos = FileInfoFactory.CreateFilesForDirectory(directoryPath);
 
             foreach (FileInfo fileInfo in fileInfos)
             {
