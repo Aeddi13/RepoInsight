@@ -29,13 +29,14 @@ namespace ComplexCity.BusinessLogic
                 string[] subdirectories = Directory.GetDirectories(directoryPath);
                 foreach (string directory in subdirectories)
                 {
-                    fileInfos.AddRange(FileInfoFactory.CreateFilesForDirectory(directory, includeSubdirectories));
+                    fileInfos.AddRange(FileInfoFactory.CreateFilesForDirectory(directory, true));
                 }
             }
 
+            fileInfos.Sort(FileInfoSortHelper.CompareFileInfosByLinesOfCode);
             return fileInfos.ToArray();
         }
-
+        
         private static FileInfo CreateFileInfo(string fileName)
         {
             string fileContent = File.ReadAllText(fileName);
