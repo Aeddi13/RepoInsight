@@ -9,7 +9,7 @@ namespace ComplexCity.BusinessLogic.Test
     public class FileInfoSortHelperTest
     {
         [TestMethod]
-        public void WhenXisGreaterThanY_ThenCompareFileInfosByLeadingSpacesPerLineShouldReturnPositiveValue()
+        public void WhenComparingFileInfosByLeadingSpacesPerLine_AndXisGreaterThanY_ThenItReturnPositiveValue()
         {
             // Arrange
             const int expectedValue = 1;
@@ -26,7 +26,7 @@ namespace ComplexCity.BusinessLogic.Test
         }
 
         [TestMethod]
-        public void WhenXisSmallerThanY_ThenCompareFileInfosByLeadingSpacesPerLineShouldReturnNegativeValue()
+        public void WhenComparingFileInfosByLeadingSpacesPerLine_AndXisSmallerThanY_ThenItShouldReturnNegativeValue()
         {
             // Arrange
             const int expectedValue = -1;
@@ -43,7 +43,7 @@ namespace ComplexCity.BusinessLogic.Test
         }
 
         [TestMethod]
-        public void WhenXisEqualToY_ThenCompareFileInfosByLeadingSpacesPerLineShouldReturn0()
+        public void WhenComparingFileInfosByLeadingSpacesPerLine_AndXisEqualToY_ThenItShouldReturn0()
         {
             // Arrange
             const int expectedValue = 0;
