@@ -48,10 +48,14 @@ namespace ComplexCity.BusinessLogic
 
             foreach (string line in lines)
             {
-                //TODO: check if line is a comment
+                // skip if line is a comment
+                if (StringHelper.IsLineAComment(line))
+                {
+                    continue;
+                }
 
                 // replace tabs with 4 whitespaces
-                string lineValue = line.Replace(Convert.ToChar(9).ToString(), "    ");
+                string lineValue = StringHelper.ReplaceTabsWithWhitespaces(line);
 
                 int leadingSpaces = lineValue.TakeWhile(Char.IsWhiteSpace).Count();
                 leadingWhitespaceCount += leadingSpaces;
