@@ -1,0 +1,14 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Design.Height="200"
+             Design.Width="300">
+  <Border 
+    BorderBrush="#124599" 
+    BorderThickness="2">    
+  <ItemsControl x:Name="FilesItemsControl">
+    <ItemsControl.ItemsPanel>
+      <WrapPanel/>
+    </ItemsControl.ItemsPanel>  
+  </ItemsControl>
+  </Border>
+</UserControl>
