@@ -11,7 +11,7 @@ namespace RepoInsight.Avalonia.View
         {
             FileInfos = new List<FileInfo>();
 
-            string directoryPath = "E:\\Aeddimedia\\Development\\MealPlanner\\Server\\src";
+            string directoryPath = "E:\\Aeddimedia\\Development\\Gource";
             FileInfo[] fileInfos = FileInfoFactory.CreateFilesForDirectory(directoryPath);
             FileInfos.AddRange(fileInfos);
         }

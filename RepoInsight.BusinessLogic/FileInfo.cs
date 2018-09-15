@@ -5,15 +5,36 @@
     /// </summary>
     public class FileInfo
     {
+        private double _leadingSpacesPerLine;
+        private string _fileName;
+        private int _linesOfCode;
+
         /// <summary>
         /// The name of the file.
         /// </summary>
-        public string FileName { get; set; }
+        public string FileName
+        {
+            get => _fileName;
+
+            set  {
+                _fileName = value;
+                RefreshLeadingSpacesPerLine();
+            }
+        }
 
         /// <summary>
         /// The lines of code of this file.
         /// </summary>
-        public int LinesOfCode { get; set; }
+        public int LinesOfCode
+        {
+            get => _linesOfCode;
+
+            set
+            {
+                _linesOfCode = value;
+                RefreshLeadingSpacesPerLine();
+            }
+        }
 
         /// <summary>
         /// The total number of leading whitespaces and tabs in this file.
@@ -24,10 +45,18 @@
         /// <summary>
         /// Gets the <see cref="NumberOfLeadingSpaces"/> divided by the <see cref="LinesOfCode"/>.
         /// </summary>
-        /// <returns>The Leading spaces per Line of code.</returns>
-        public double GetLeadingSpacesPerLine()
+        public double LeadingSpacesPerLine
         {
-            return ((double)NumberOfLeadingSpaces) / ((double)LinesOfCode);
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Updates the <see cref="LeadingSpacesPerLine"/>.
+        /// </summary>
+        private void RefreshLeadingSpacesPerLine()
+        {
+            LeadingSpacesPerLine = ((double)NumberOfLeadingSpaces) / ((double)LinesOfCode);
         }
     }
 }

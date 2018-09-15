@@ -44,7 +44,7 @@
                 else
                 {
                     // ...and y is not null, compare the leading spaces per line
-                    double difference = x.GetLeadingSpacesPerLine() - y.GetLeadingSpacesPerLine();
+                    double difference = x.LeadingSpacesPerLine - y.LeadingSpacesPerLine;
 
                     if (difference < 0)
                     {

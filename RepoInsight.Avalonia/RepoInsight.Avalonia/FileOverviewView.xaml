@@ -1,29 +1,46 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:model="clr-namespace:RepoInsight.BusinessLogic;assembly=RepoInsight.BusinessLogic"
+             xmlns:local="clr-namespace:RepoInsight.Avalonia.View;assembly=RepoInsight.Avalonia.View"
              Design.Height="200"
              Design.Width="300">
+  <UserControl.Resources>
+    <local:MathOperationConverter x:Key="DivisionConverter"
+                                  Operator="/" />
+  </UserControl.Resources>
   <UserControl.DataTemplates>
     <DataTemplate DataType="model:FileInfo">
       <Border 
         Margin="2"
+        Width="{Binding Path=LinesOfCode}"
+        Height="{Binding Path=LinesOfCode}"
+        MaxWidth="500"
+        MaxHeight="500"
         BorderBrush="Navy"
-        BorderThickness="1"
-        Background="Beige" >
-        <TextBlock Text="{Binding FileName}"/>
+        BorderThickness="{Binding Path=LeadingSpacesPerLine}"
+        Background="Beige" 
+        ToolTip.Tip="{Binding Path=FileName}">
+        <StackPanel>          
+        <TextBlock Text="{Binding Path=FileName}"/>
+        <TextBlock Text="{Binding Path=LinesOfCode}"/>
+        </StackPanel>
       </Border>
     </DataTemplate>
   </UserControl.DataTemplates>
   <Border 
     BorderBrush="#124599" 
-    BorderThickness="2">    
-  <ItemsControl x:Name="FilesItemsControl"
+    BorderThickness="2">
+    <ScrollViewer 
+      HorizontalScrollBarVisibility="Disabled"
+      VerticalScrollBarVisibility="Auto">      
+      <ItemsControl x:Name="FilesItemsControl"
                 Items="{Binding Path=FileInfos}">
-    <ItemsControl.ItemsPanel>
-      <ItemsPanelTemplate>        
-      <WrapPanel Orientation="Horizontal"/>
-      </ItemsPanelTemplate>
-    </ItemsControl.ItemsPanel>  
-  </ItemsControl>
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>        
+            <WrapPanel Orientation="Horizontal"/>
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>  
+      </ItemsControl>
+    </ScrollViewer>
   </Border>
 </UserControl>
