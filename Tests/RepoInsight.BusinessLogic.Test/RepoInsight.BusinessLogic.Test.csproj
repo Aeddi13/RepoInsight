@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ComplexCity.BusinessLogic\ComplexCity.BusinessLogic.csproj" />
+    <ProjectReference Include="..\..\RepoInsight.BusinessLogic\RepoInsight.BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>
