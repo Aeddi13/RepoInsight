@@ -5,8 +5,12 @@
              Design.Width="300">
   <UserControl.DataTemplates>
     <DataTemplate DataType="model:FileInfo">
-      <Border Background="Red" CornerRadius="8">
-        <TextBox Text="{Binding FileName}"/>
+      <Border 
+        Margin="2"
+        BorderBrush="Navy"
+        BorderThickness="1"
+        Background="Beige" >
+        <TextBlock Text="{Binding FileName}"/>
       </Border>
     </DataTemplate>
   </UserControl.DataTemplates>
@@ -16,7 +20,9 @@
   <ItemsControl x:Name="FilesItemsControl"
                 Items="{Binding Path=FileInfos}">
     <ItemsControl.ItemsPanel>
-      <WrapPanel/>
+      <ItemsPanelTemplate>        
+      <WrapPanel Orientation="Horizontal"/>
+      </ItemsPanelTemplate>
     </ItemsControl.ItemsPanel>  
   </ItemsControl>
   </Border>

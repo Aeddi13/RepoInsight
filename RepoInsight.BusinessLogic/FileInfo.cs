@@ -13,13 +13,13 @@
         /// <summary>
         /// The lines of code of this file.
         /// </summary>
-        public int LinesOfCode;
+        public int LinesOfCode { get; set; }
 
         /// <summary>
         /// The total number of leading whitespaces and tabs in this file.
         /// 1 Tab counts as 4 whitespaces;
         /// </summary>
-        public int NumberOfLeadingSpaces;
+        public int NumberOfLeadingSpaces { get; set; }
 
         /// <summary>
         /// Gets the <see cref="NumberOfLeadingSpaces"/> divided by the <see cref="LinesOfCode"/>.
