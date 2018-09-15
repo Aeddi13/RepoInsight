@@ -1,5 +1,5 @@
 ﻿using System;
-using ComplexCity.BusinessLogic;
+using RepoInsight.BusinessLogic;
 
 namespace ComplexCity.ConsoleApp
 {

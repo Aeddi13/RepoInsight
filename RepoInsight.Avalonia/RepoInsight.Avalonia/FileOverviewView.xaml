@@ -1,11 +1,20 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:model="clr-namespace:RepoInsight.BusinessLogic;assembly=RepoInsight.BusinessLogic"
              Design.Height="200"
              Design.Width="300">
+  <UserControl.DataTemplates>
+    <DataTemplate DataType="model:FileInfo">
+      <Border Background="Red" CornerRadius="8">
+        <TextBox Text="{Binding FileName}"/>
+      </Border>
+    </DataTemplate>
+  </UserControl.DataTemplates>
   <Border 
     BorderBrush="#124599" 
     BorderThickness="2">    
-  <ItemsControl x:Name="FilesItemsControl">
+  <ItemsControl x:Name="FilesItemsControl"
+                Items="{Binding Path=FileInfos}">
     <ItemsControl.ItemsPanel>
       <WrapPanel/>
     </ItemsControl.ItemsPanel>  

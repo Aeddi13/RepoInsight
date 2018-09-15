@@ -1,4 +1,4 @@
-﻿namespace ComplexCity.BusinessLogic
+﻿namespace RepoInsight.BusinessLogic
 {
     /// <summary>
     /// Contains helper methods to sort enumerations of <see cref="FileInfo"/>.

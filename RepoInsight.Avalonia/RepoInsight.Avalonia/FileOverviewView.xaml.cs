@@ -9,6 +9,7 @@ namespace RepoInsight.Avalonia.View
         public FileOverviewView()
         {
             this.InitializeComponent();
+            this.DataContext = new FileOverviewViewModel();
         }
 
         private void InitializeComponent()

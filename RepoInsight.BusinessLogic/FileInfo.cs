@@ -1,4 +1,4 @@
-﻿namespace ComplexCity.BusinessLogic
+﻿namespace RepoInsight.BusinessLogic
 {
     /// <summary>
     /// Represents a file that has been read from the file system.
@@ -8,7 +8,7 @@
         /// <summary>
         /// The name of the file.
         /// </summary>
-        public string FileName;
+        public string FileName { get; set; }
 
         /// <summary>
         /// The lines of code of this file.

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ComplexCity.BusinessLogic
+namespace RepoInsight.BusinessLogic
 {
     /// <summary>
     /// Contains helper methods for string operations.

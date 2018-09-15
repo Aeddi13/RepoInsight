@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ComplexCity.BusinessLogic.Test
+namespace RepoInsight.BusinessLogic.Test
 {
     /// <summary>
     /// Testclass for the <see cref="FileInfoSortHelper"/> class.

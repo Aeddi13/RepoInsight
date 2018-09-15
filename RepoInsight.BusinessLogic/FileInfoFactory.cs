@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace ComplexCity.BusinessLogic
+namespace RepoInsight.BusinessLogic
 {
     /// <summary>
     /// Creates instances of the <see cref="FileInfo"/> class.
