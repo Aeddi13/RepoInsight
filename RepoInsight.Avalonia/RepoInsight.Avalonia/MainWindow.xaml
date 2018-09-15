@@ -1,6 +1,6 @@
 ﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:RepoInsight.Avalonia;assembly=RepoInsight.Avalonia"
+        xmlns:local="clr-namespace:RepoInsight.Avalonia.View;assembly=RepoInsight.Avalonia.View"
         Title="RepoInsight"
         MinWidth="300"
         MinHeight="200">

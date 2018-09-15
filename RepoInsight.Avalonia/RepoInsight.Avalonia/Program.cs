@@ -2,7 +2,7 @@
 using Avalonia;
 using Avalonia.Logging.Serilog;
 
-namespace RepoInsight.Avalonia
+namespace RepoInsight.Avalonia.View
 {
     class Program
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepoInsight.Avalonia", "RepoInsight.Avalonia\RepoInsight.Avalonia.csproj", "{73D2FC20-8A06-4EC8-A6FC-C2582FDA18E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepoInsight.Avalonia.View", "RepoInsight.Avalonia\RepoInsight.Avalonia.View.csproj", "{73D2FC20-8A06-4EC8-A6FC-C2582FDA18E5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepoInsight.BusinessLogic", "..\RepoInsight.BusinessLogic\RepoInsight.BusinessLogic.csproj", "{04FAC345-9699-47F9-95AE-E3F3A384F6B7}"
 EndProject

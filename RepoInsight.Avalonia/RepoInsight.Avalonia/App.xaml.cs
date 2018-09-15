@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Markup.Xaml;
 
-namespace RepoInsight.Avalonia
+namespace RepoInsight.Avalonia.View
 {
     public class App : Application
     {
