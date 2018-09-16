@@ -7,8 +7,10 @@
   <UserControl.Resources>
     <ResourceDictionary>
       <localConverters:MathOperationConverter x:Key="DivisionConverter"
-                                  Operator="/"  />
-      <localConverters:DoubleToThicknessConverter x:Key="DoubleToThicknessConverter" />
+                                              Operator="/"  />
+      
+      <localConverters:DoubleToThicknessConverter x:Key="MultipliedDoubleToThicknessConverter"
+                                                  Multiplier="2.5"/>
     </ResourceDictionary>    
   </UserControl.Resources>
   <UserControl.DataTemplates>
@@ -20,7 +22,7 @@
         MaxWidth="500"
         MaxHeight="500"
         BorderBrush="Red"
-        BorderThickness="{Binding Path=LeadingSpacesPerLine, Converter={StaticResource DoubleToThicknessConverter}}"
+        BorderThickness="{Binding Path=LeadingSpacesPerLine, Converter={StaticResource MultipliedDoubleToThicknessConverter}}"
         Background="Beige" 
         ToolTip.Tip="{Binding Path=FileName}">
         <StackPanel>          
