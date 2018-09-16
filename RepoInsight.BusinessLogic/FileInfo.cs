@@ -8,6 +8,7 @@
         private double _leadingSpacesPerLine;
         private string _fileName;
         private int _linesOfCode;
+        private int _numberOfLeadingSpaces;
 
         /// <summary>
         /// The name of the file.
@@ -18,7 +19,6 @@
 
             set  {
                 _fileName = value;
-                RefreshLeadingSpacesPerLine();
             }
         }
 
@@ -40,7 +40,16 @@
         /// The total number of leading whitespaces and tabs in this file.
         /// 1 Tab counts as 4 whitespaces;
         /// </summary>
-        public int NumberOfLeadingSpaces { get; set; }
+        public int NumberOfLeadingSpaces
+        {
+            get => _numberOfLeadingSpaces;
+
+            set
+            {
+                _numberOfLeadingSpaces = value;
+                RefreshLeadingSpacesPerLine();
+            }
+        }
 
         /// <summary>
         /// Gets the <see cref="NumberOfLeadingSpaces"/> divided by the <see cref="LinesOfCode"/>.

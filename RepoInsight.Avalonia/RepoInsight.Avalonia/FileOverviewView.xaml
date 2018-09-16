@@ -1,23 +1,26 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:model="clr-namespace:RepoInsight.BusinessLogic;assembly=RepoInsight.BusinessLogic"
-             xmlns:local="clr-namespace:RepoInsight.Avalonia.View;assembly=RepoInsight.Avalonia.View"
+             xmlns:localConverters="clr-namespace:RepoInsight.Avalonia.View.Converter;assembly=RepoInsight.Avalonia.View"
              Design.Height="200"
              Design.Width="300">
   <UserControl.Resources>
-    <local:MathOperationConverter x:Key="DivisionConverter"
-                                  Operator="/" />
+    <ResourceDictionary>
+      <localConverters:MathOperationConverter x:Key="DivisionConverter"
+                                  Operator="/"  />
+      <localConverters:DoubleToThicknessConverter x:Key="DoubleToThicknessConverter" />
+    </ResourceDictionary>    
   </UserControl.Resources>
   <UserControl.DataTemplates>
     <DataTemplate DataType="model:FileInfo">
       <Border 
         Margin="2"
-        Width="{Binding Path=LinesOfCode}"
-        Height="{Binding Path=LinesOfCode}"
+        Width="{Binding Path=LinesOfCode, Converter={StaticResource DivisionConverter}, ConverterParameter=10}"
+        Height="{Binding Path=LinesOfCode, Converter={StaticResource DivisionConverter}, ConverterParameter=10}"
         MaxWidth="500"
         MaxHeight="500"
-        BorderBrush="Navy"
-        BorderThickness="{Binding Path=LeadingSpacesPerLine}"
+        BorderBrush="Red"
+        BorderThickness="{Binding Path=LeadingSpacesPerLine, Converter={StaticResource DoubleToThicknessConverter}}"
         Background="Beige" 
         ToolTip.Tip="{Binding Path=FileName}">
         <StackPanel>          
