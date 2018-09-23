@@ -37,15 +37,8 @@ namespace RepoInsight.BusinessLogic.History
             {
                 foreach (var parent in commit.Parents)
                 {
-                    GitCommit gitCommit = new GitCommit();
-                    gitCommit.Message = commit.Message;
-                    gitCommit.Author = commit.Author.Name;
-                    gitCommit.Date = commit.Committer.When.DateTime;
-                    gitCommit.CommitedFiles = new List<string>();
-                    foreach (TreeEntryChanges change in repository.Diff.Compare<TreeChanges>(parent.Tree, commit.Tree))
-                    {
-                        gitCommit.CommitedFiles.Add(change.Path);
-                    }
+                    GitCommit gitCommit = new GitCommit(commit);
+                    gitCommit.GenerateCommitedFiles(commit, parent, repository);
                     commitList.Add(gitCommit);
                 }
             }
