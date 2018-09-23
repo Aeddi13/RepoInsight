@@ -16,7 +16,7 @@ namespace RepoInsight.Avalonia.View
             string repositoryPath = "E:\\Aeddimedia\\Development\\MealPlanner";
             FileInfo[] fileInfos = FileInfoFactory.CreateFilesForDirectory(directoryPath);
 
-            var GitLog = GitCommitFactory.GetCommitsForRepository(repositoryPath);
+            List<ICommit> GitLog = GitCommitFactory.GetCommitsForRepositoryPath(repositoryPath);
 
             FileInfoFactory.AddCommitsToFileInfos(fileInfos, GitLog.ToArray());
 
