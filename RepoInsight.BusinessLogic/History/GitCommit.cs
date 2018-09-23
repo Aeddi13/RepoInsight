@@ -24,8 +24,7 @@ namespace RepoInsight.BusinessLogic.History
         {
             this.Message = libGit2SharpCommit.Message;
             this.Author = libGit2SharpCommit.Author.Name;
-            this.Date = libGit2SharpCommit.Committer.When.DateTime;
-                        
+            this.Date = libGit2SharpCommit.Committer.When.DateTime;                        
         }
 
         /// <summary>
@@ -40,7 +39,8 @@ namespace RepoInsight.BusinessLogic.History
             this.CommitedFiles = new List<string>();
             foreach (TreeEntryChanges change in repository.Diff.Compare<TreeChanges>(parent.Tree, commit.Tree))
             {
-                this.CommitedFiles.Add(change.Path);
+                string fullFilePath = repository.Info.WorkingDirectory + change.Path.Replace("/", "\\");
+                this.CommitedFiles.Add(fullFilePath);
             }
         }
 
