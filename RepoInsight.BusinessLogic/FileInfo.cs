@@ -9,6 +9,7 @@
         private string _fileName;
         private int _linesOfCode;
         private int _numberOfLeadingSpaces;
+        private int _numberOfRevisions;
 
         /// <summary>
         /// The name of the file.
@@ -66,6 +67,20 @@
         private void RefreshLeadingSpacesPerLine()
         {
             LeadingSpacesPerLine = ((double)NumberOfLeadingSpaces) / ((double)LinesOfCode);
+        }
+
+
+        /// <summary>
+        /// The name of the file.
+        /// </summary>
+        public int NumberOfRevisions
+        {
+            get => _numberOfRevisions;
+
+            set
+            {
+                _numberOfRevisions = value;
+            }
         }
     }
 }

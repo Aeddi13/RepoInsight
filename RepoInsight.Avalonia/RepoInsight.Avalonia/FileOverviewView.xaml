@@ -21,13 +21,14 @@
         Height="{Binding Path=LinesOfCode, Converter={StaticResource DivisionConverter}, ConverterParameter=10}"
         MaxWidth="500"
         MaxHeight="500"
-        BorderBrush="Red"
+        BorderBrush="#456789"
         BorderThickness="{Binding Path=LeadingSpacesPerLine, Converter={StaticResource MultipliedDoubleToThicknessConverter}}"
         Background="Beige" 
         ToolTip.Tip="{Binding Path=FileName}">
         <StackPanel>          
         <TextBlock Text="{Binding Path=FileName}"/>
-        <TextBlock Text="{Binding Path=LinesOfCode}"/>
+          <TextBlock Text="{Binding Path=LinesOfCode}"/>
+          <TextBlock Text="{Binding Path=NumberOfRevisions}"/>
         </StackPanel>
       </Border>
     </DataTemplate>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RepoInsight.BusinessLogic.History;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -37,6 +38,20 @@ namespace RepoInsight.BusinessLogic
             return fileInfos.ToArray();
         }
         
+        public static void AddCommitsToFileInfos(FileInfo[] fileInfos, ICommit[] commits)
+        {
+            foreach (FileInfo fileInfo in fileInfos)
+            {
+                foreach (ICommit commit in commits)
+                {
+                    if (commit.CommitedFiles.Contains(fileInfo.FileName))
+                    {
+                        fileInfo.NumberOfRevisions++;
+                    }
+                }
+            }
+        }
+
         private static FileInfo CreateFileInfo(string fileName)
         {
             string fileContent = File.ReadAllText(fileName);
