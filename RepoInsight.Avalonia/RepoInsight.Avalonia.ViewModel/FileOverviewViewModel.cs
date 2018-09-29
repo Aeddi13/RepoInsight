@@ -1,6 +1,5 @@
 ﻿using RepoInsight.BusinessLogic;
 using RepoInsight.BusinessLogic.History;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -16,9 +15,6 @@ namespace RepoInsight.Avalonia.ViewModel
             {
                 this.LoadFileInfos();
             }, param => true);
-
-            this.DirectoryPath = "E:\\Aeddimedia\\Development\\Gource";
-            this.LoadFileInfos();
         }
         
         private List<FileInfo> _fileInfos;
@@ -70,7 +66,7 @@ namespace RepoInsight.Avalonia.ViewModel
                 return;
             }
 
-            FileInfos = new List<FileInfo>();
+            List<FileInfo> newFileInfos = new List<FileInfo>();
             
             FileInfo[] fileInfos = FileInfoFactory.CreateFilesForDirectory(DirectoryPath);
 
@@ -78,9 +74,9 @@ namespace RepoInsight.Avalonia.ViewModel
 
             FileInfoFactory.AddCommitsToFileInfos(fileInfos, GitLog.ToArray());
 
-            Console.Write(GitLog);
-            FileInfos.AddRange(fileInfos);
-            RaisePropertyChanged(nameof(FileInfos));
+            //Console.Write(GitLog);
+            newFileInfos.AddRange(fileInfos);
+            this.FileInfos = newFileInfos;
         }
     }
 }
