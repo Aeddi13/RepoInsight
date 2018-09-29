@@ -4,9 +4,9 @@
         Title="RepoInsight"
         MinWidth="300"
         MinHeight="200">
-  <local:FileOverviewView 
-    HorizontalAlignment="Stretch"                          
-    VerticalAlignment="Stretch">
-    
-  </local:FileOverviewView>
+  <DockPanel>
+    <local:FileOverviewView 
+      HorizontalAlignment="Stretch"                          
+      VerticalAlignment="Stretch" />
+  </DockPanel>
 </Window>

@@ -22,6 +22,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\RepoInsight.BusinessLogic\RepoInsight.BusinessLogic.csproj" />
+    <ProjectReference Include="..\RepoInsight.Avalonia.ViewModel\RepoInsight.Avalonia.ViewModel.csproj" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="FileOverviewView.xaml">

@@ -2,12 +2,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:model="clr-namespace:RepoInsight.BusinessLogic;assembly=RepoInsight.BusinessLogic"
              xmlns:localConverters="clr-namespace:RepoInsight.Avalonia.View.Converter;assembly=RepoInsight.Avalonia.View"
-             Design.Height="200"
-             Design.Width="300">
+             Design.Height="400"
+             Design.Width="800">
   <UserControl.Resources>
     <ResourceDictionary>
       <localConverters:MathOperationConverter x:Key="DivisionConverter"
-                                              Operator="/"  />
+                                              Operator="/" />
       
       <localConverters:DoubleToThicknessConverter x:Key="MultipliedDoubleToThicknessConverter"
                                                   Multiplier="2.5"/>
@@ -26,27 +26,43 @@
         Background="Beige" 
         ToolTip.Tip="{Binding Path=FileName}">
         <StackPanel>          
-        <TextBlock Text="{Binding Path=FileName}"/>
+          <TextBlock Text="{Binding Path=FileName}"/>
           <TextBlock Text="{Binding Path=LinesOfCode}"/>
           <TextBlock Text="{Binding Path=NumberOfRevisions}"/>
         </StackPanel>
       </Border>
     </DataTemplate>
   </UserControl.DataTemplates>
-  <Border 
-    BorderBrush="#124599" 
-    BorderThickness="2">
-    <ScrollViewer 
-      HorizontalScrollBarVisibility="Disabled"
-      VerticalScrollBarVisibility="Auto">      
-      <ItemsControl x:Name="FilesItemsControl"
-                Items="{Binding Path=FileInfos}">
-        <ItemsControl.ItemsPanel>
-          <ItemsPanelTemplate>        
-            <WrapPanel Orientation="Horizontal"/>
-          </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>  
-      </ItemsControl>
-    </ScrollViewer>
-  </Border>
+  <DockPanel>
+  <StackPanel 
+    DockPanel.Dock="Top"
+    Background="#120088"
+    Orientation="Horizontal">
+    <TextBlock 
+      Foreground="White" 
+      Text="Repository Path"
+      VerticalAlignment="Center"/>
+    <TextBox 
+      Text="{Binding Path=DirectoryPath, Mode=TwoWay}"
+      MinWidth="250"/>
+    <Button Content="Load Repository"
+            Command="{Binding Path=LoadFileInfosCommand, Mode=OneWay}"/>
+  </StackPanel>
+    <Border 
+      BorderBrush="#124599" 
+      BorderThickness="2">
+      <ScrollViewer 
+        HorizontalScrollBarVisibility="Disabled"
+        VerticalScrollBarVisibility="Auto">      
+        <ItemsControl x:Name="FilesItemsControl"
+                  Items="{Binding Path=FileInfos, Mode=TwoWay}">
+          <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>        
+              <WrapPanel Orientation="Horizontal"/>
+            </ItemsPanelTemplate>
+          </ItemsControl.ItemsPanel>  
+        </ItemsControl>
+      </ScrollViewer>
+    </Border>
+  </DockPanel>
 </UserControl>
