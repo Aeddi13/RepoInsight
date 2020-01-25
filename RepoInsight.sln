@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepoInsight.BusinessLogic", "RepoInsight.BusinessLogic\RepoInsight.BusinessLogic.csproj", "{8FB30E75-B172-4E65-B2CB-D30C74BD5CFC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepoInsight.BusinessLogic.Test", "Tests\RepoInsight.BusinessLogic.Test\RepoInsight.BusinessLogic.Test.csproj", "{1FF889CB-C66C-481A-9FB1-78B4C0CE2E60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FB30E75-B172-4E65-B2CB-D30C74BD5CFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FB30E75-B172-4E65-B2CB-D30C74BD5CFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FB30E75-B172-4E65-B2CB-D30C74BD5CFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FB30E75-B172-4E65-B2CB-D30C74BD5CFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FF889CB-C66C-481A-9FB1-78B4C0CE2E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF889CB-C66C-481A-9FB1-78B4C0CE2E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF889CB-C66C-481A-9FB1-78B4C0CE2E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF889CB-C66C-481A-9FB1-78B4C0CE2E60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4257C89C-C91A-41BE-A10C-F73F49BFB6C5}
+	EndGlobalSection
+EndGlobal
