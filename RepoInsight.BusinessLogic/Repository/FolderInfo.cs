@@ -51,5 +51,14 @@ namespace RepoInsight.BusinessLogic.Repository
                 _numberOfRevisions = value;
             }
         }
+
+        /// <summary>
+        /// Contains a list of sub folders and files inside this folder.
+        /// </summary>
+        public List<IRepoObjectInfo> SubObjects
+        {
+            get;
+        }
+
     }
 }
