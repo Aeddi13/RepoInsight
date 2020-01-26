@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepoInsight.BusinessLogic",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepoInsight.BusinessLogic.Test", "Tests\RepoInsight.BusinessLogic.Test\RepoInsight.BusinessLogic.Test.csproj", "{1FF889CB-C66C-481A-9FB1-78B4C0CE2E60}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepoInsight.Avalonia.ViewModel", "RepoInsight.Avalonia\RepoInsight.Avalonia.ViewModel\RepoInsight.Avalonia.ViewModel.csproj", "{C00ACC52-33C4-4553-B685-790737ACFE6B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepoInsight.Avalonia.View", "RepoInsight.Avalonia\RepoInsight.Avalonia\RepoInsight.Avalonia.View.csproj", "{F6833417-4C1C-4F57-B249-C5DEB2899DBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{1FF889CB-C66C-481A-9FB1-78B4C0CE2E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FF889CB-C66C-481A-9FB1-78B4C0CE2E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FF889CB-C66C-481A-9FB1-78B4C0CE2E60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C00ACC52-33C4-4553-B685-790737ACFE6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C00ACC52-33C4-4553-B685-790737ACFE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C00ACC52-33C4-4553-B685-790737ACFE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C00ACC52-33C4-4553-B685-790737ACFE6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6833417-4C1C-4F57-B249-C5DEB2899DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6833417-4C1C-4F57-B249-C5DEB2899DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6833417-4C1C-4F57-B249-C5DEB2899DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6833417-4C1C-4F57-B249-C5DEB2899DBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
