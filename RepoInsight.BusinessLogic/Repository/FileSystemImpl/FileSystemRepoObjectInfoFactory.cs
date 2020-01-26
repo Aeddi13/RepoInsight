@@ -38,7 +38,7 @@ namespace RepoInsight.BusinessLogic.Repository.FileSystemImpl
             return objectInfos;
         }
 
-        private static FileInfo CreateFileInfo(string fileName)
+        private FileInfo CreateFileInfo(string fileName)
         {
             string fileContent = File.ReadAllText(fileName);
 
@@ -47,34 +47,23 @@ namespace RepoInsight.BusinessLogic.Repository.FileSystemImpl
             int lineCount = lines.Length;
             int leadingWhitespaceCount = 0;
 
-            foreach (string line in lines)
-            {
-                // skip if line is a comment
-                if (StringHelper.IsLineAComment(line))
-                {
-                    continue;
-                }
-
-                // replace tabs with 4 whitespaces
-                string lineValue = StringHelper.ReplaceTabsWithWhitespaces(line);
-
-                int leadingSpaces = lineValue.TakeWhile(Char.IsWhiteSpace).Count();
-                leadingWhitespaceCount += leadingSpaces;
-            }
-
             FileInfo fileInfo = new FileInfo()
             {
                 LinesOfCode = lineCount,
                 Name = fileName,
-                NumberOfLeadingSpaces = leadingWhitespaceCount
             };
 
             return fileInfo;
         }
 
-        private static FolderInfo CreateFolderInfo(string folderName)
+        private FolderInfo CreateFolderInfo(string folderName)
         {
+            FolderInfo folderInfo = new FolderInfo();
+            folderInfo.Name = folderName;
 
+            folderInfo.SubObjects = CreateObjectInfos(folderName);
+
+            return folderInfo;
         }
     }
 }

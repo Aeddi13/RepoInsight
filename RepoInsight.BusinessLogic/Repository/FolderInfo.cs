@@ -58,6 +58,7 @@ namespace RepoInsight.BusinessLogic.Repository
         public List<IRepoObjectInfo> SubObjects
         {
             get;
+            set;
         }
 
     }
