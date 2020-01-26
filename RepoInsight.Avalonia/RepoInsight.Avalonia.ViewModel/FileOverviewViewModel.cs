@@ -1,5 +1,5 @@
-﻿using RepoInsight.BusinessLogic;
-using RepoInsight.BusinessLogic.History;
+﻿using RepoInsight.BusinessLogic.Repository;
+using RepoInsight.BusinessLogic.Repository.FileSystemImpl;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -11,15 +11,15 @@ namespace RepoInsight.Avalonia.ViewModel
     {
         public FileOverviewViewModel()
         {
-            _loadFileInfosCommand = new RelayCommand(param => 
+            _loadFileInfosCommand = new RelayCommand(param =>
             {
                 this.LoadFileInfos();
             }, param => true);
         }
-        
-        private List<FileInfo> _fileInfos;
 
-        public List<FileInfo> FileInfos
+        private List<IRepoObjectInfo> _fileInfos;
+
+        public List<IRepoObjectInfo> FileInfos
         {
             get { return _fileInfos; }
             set
@@ -42,7 +42,7 @@ namespace RepoInsight.Avalonia.ViewModel
         }
 
         private ICommand _loadFileInfosCommand;
-        
+
         public ICommand LoadFileInfosCommand
         {
             get { return _loadFileInfosCommand; }
@@ -66,16 +66,15 @@ namespace RepoInsight.Avalonia.ViewModel
                 return;
             }
 
-            List<FileInfo> newFileInfos = new List<FileInfo>();
-            
-            FileInfo[] fileInfos = FileInfoFactory.CreateFilesForDirectory(DirectoryPath);
+            FileSystemRepoObjectInfoFactory factory = new FileSystemRepoObjectInfoFactory();
+            List<IRepoObjectInfo> newFileInfos = factory.CreateObjectInfos(DirectoryPath);
 
-            List<ICommit> GitLog = GitCommitFactory.GetCommitsForRepositoryPath(DirectoryPath);
+            //FileInfo[] fileInfos = FileInfoFactory.CreateFilesForDirectory(DirectoryPath);
 
-            FileInfoFactory.AddCommitsToFileInfos(fileInfos, GitLog.ToArray());
+            //List<ICommit> GitLog = GitCommitFactory.GetCommitsForRepositoryPath(DirectoryPath);
 
-            //Console.Write(GitLog);
-            newFileInfos.AddRange(fileInfos);
+            //FileInfoFactory.AddCommitsToFileInfos(fileInfos, GitLog.ToArray());
+
             this.FileInfos = newFileInfos;
         }
     }

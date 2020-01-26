@@ -9,15 +9,19 @@ namespace RepoInsight.BusinessLogic.Repository.FileSystemImpl
     {
         List<string> excludedFileEndings = new List<string>
         {
-            ".dll"
+            ".gitignore",
+            ".dll",
         };
 
         List<string> excludedFolders = new List<string>
         {
-            "\\bin\\",
-            "\\obj\\",
-            "\\debug\\",
-            "\\build\\",
+            "\\bin",
+            "\\obj",
+            "\\Debug",
+            "\\debug",
+            "\\build",
+            "\\.git",
+            "\\.vs",
         };
 
         /// <summary>

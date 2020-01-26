@@ -2,7 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:localConverters="clr-namespace:RepoInsight.Avalonia.View.Converter;assembly=RepoInsight.Avalonia.View"
-    xmlns:model="clr-namespace:RepoInsight.BusinessLogic;assembly=RepoInsight.BusinessLogic"
+    xmlns:model="clr-namespace:RepoInsight.BusinessLogic.Repository;assembly=RepoInsight.BusinessLogic"
     Design.Height="400"
     Design.Width="800">
     <UserControl.Resources>
@@ -13,19 +13,19 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <UserControl.DataTemplates>
-        <DataTemplate DataType="model:FileInfo">
+        <DataTemplate DataType="model:IRepoObjectInfo">
             <Border
-                Width="{Binding Path=LinesOfCode, Converter={StaticResource DivisionConverter}, ConverterParameter=10}"
-                Height="{Binding Path=LinesOfCode, Converter={StaticResource DivisionConverter}, ConverterParameter=10}"
+                Width="{Binding Path=LinesOfCode, Converter={StaticResource DivisionConverter}, ConverterParameter=2}"
+                Height="{Binding Path=LinesOfCode, Converter={StaticResource DivisionConverter}, ConverterParameter=2}"
                 MaxWidth="500"
                 MaxHeight="500"
                 Margin="2"
                 Background="Beige"
                 BorderBrush="#456789"
-                BorderThickness="{Binding Path=LeadingSpacesPerLine, Converter={StaticResource MultipliedDoubleToThicknessConverter}}"
-                ToolTip.Tip="{Binding Path=FileName}">
+                BorderThickness="2"
+                ToolTip.Tip="{Binding Path=Name}">
                 <StackPanel>
-                    <TextBlock Text="{Binding Path=FileName}" />
+                    <TextBlock Text="{Binding Path=Name}" />
                     <TextBlock Text="{Binding Path=LinesOfCode}" />
                     <TextBlock Text="{Binding Path=NumberOfRevisions}" />
                 </StackPanel>
