@@ -37,7 +37,7 @@ namespace RepoInsight.BusinessLogic
             fileInfos.Sort(FileInfoSortHelper.CompareFileInfosByLinesOfCode);
             return fileInfos.ToArray();
         }
-        
+
         public static void AddCommitsToFileInfos(FileInfo[] fileInfos, ICommit[] commits)
         {
             foreach (FileInfo fileInfo in fileInfos)

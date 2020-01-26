@@ -18,7 +18,8 @@
         {
             get => _fileName;
 
-            set  {
+            set
+            {
                 _fileName = value;
             }
         }
