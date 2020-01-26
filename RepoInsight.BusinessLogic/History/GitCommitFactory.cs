@@ -19,7 +19,7 @@ namespace RepoInsight.BusinessLogic.History
         /// <returns>A <see cref="List{ICommit}"/> with all commits in the repository.</returns>
         public static List<ICommit> GetCommitsForRepositoryPath(string repositoryPath)
         {
-            Repository repository = new Repository(repositoryPath);
+            LibGit2Sharp.Repository repository = new LibGit2Sharp.Repository(repositoryPath);
 
             return GetCommitsForRepository(repository);
         }
@@ -29,7 +29,7 @@ namespace RepoInsight.BusinessLogic.History
         /// </summary>
         /// <param name="repositoryPath">The <see cref="Repository"/>.</param>
         /// <returns>A <see cref="List{ICommit}"/> with all commits in the repository.</returns>
-        public static List<ICommit> GetCommitsForRepository(Repository repository)
+        public static List<ICommit> GetCommitsForRepository(LibGit2Sharp.Repository repository)
         {
             List<ICommit> commitList = new List<ICommit>();
 

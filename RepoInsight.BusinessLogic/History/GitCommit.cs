@@ -24,7 +24,7 @@ namespace RepoInsight.BusinessLogic.History
         {
             this.Message = libGit2SharpCommit.Message;
             this.Author = libGit2SharpCommit.Author.Name;
-            this.Date = libGit2SharpCommit.Committer.When.DateTime;                        
+            this.Date = libGit2SharpCommit.Committer.When.DateTime;
         }
 
         /// <summary>
@@ -33,8 +33,8 @@ namespace RepoInsight.BusinessLogic.History
         /// </summary>
         /// <param name="commit">The <see cref="Commit"/>.</param>
         /// <param name="parent">The parent of the <see cref="Commit"/>.</param>
-        /// <param name="repository">The <see cref="Repository"/> of the commits.</param>
-        public void GenerateCommitedFiles(Commit commit, Commit parent, Repository repository)
+        /// <param name="repository">The <see cref="LibGit2Sharp.Repository"/> of the commits.</param>
+        public void GenerateCommitedFiles(Commit commit, Commit parent, LibGit2Sharp.Repository repository)
         {
             this.CommitedFiles = new List<string>();
             foreach (TreeEntryChanges change in repository.Diff.Compare<TreeChanges>(parent.Tree, commit.Tree))
