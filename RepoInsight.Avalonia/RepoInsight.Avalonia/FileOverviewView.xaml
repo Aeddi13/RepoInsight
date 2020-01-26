@@ -1,68 +1,59 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:model="clr-namespace:RepoInsight.BusinessLogic;assembly=RepoInsight.BusinessLogic"
-             xmlns:localConverters="clr-namespace:RepoInsight.Avalonia.View.Converter;assembly=RepoInsight.Avalonia.View"
-             Design.Height="400"
-             Design.Width="800">
-  <UserControl.Resources>
-    <ResourceDictionary>
-      <localConverters:MathOperationConverter x:Key="DivisionConverter"
-                                              Operator="/" />
-      
-      <localConverters:DoubleToThicknessConverter x:Key="MultipliedDoubleToThicknessConverter"
-                                                  Multiplier="2.5"/>
-    </ResourceDictionary>    
-  </UserControl.Resources>
-  <UserControl.DataTemplates>
-    <DataTemplate DataType="model:FileInfo">
-      <Border 
-        Margin="2"
-        Width="{Binding Path=LinesOfCode, Converter={StaticResource DivisionConverter}, ConverterParameter=10}"
-        Height="{Binding Path=LinesOfCode, Converter={StaticResource DivisionConverter}, ConverterParameter=10}"
-        MaxWidth="500"
-        MaxHeight="500"
-        BorderBrush="#456789"
-        BorderThickness="{Binding Path=LeadingSpacesPerLine, Converter={StaticResource MultipliedDoubleToThicknessConverter}}"
-        Background="Beige" 
-        ToolTip.Tip="{Binding Path=FileName}">
-        <StackPanel>          
-          <TextBlock Text="{Binding Path=FileName}"/>
-          <TextBlock Text="{Binding Path=LinesOfCode}"/>
-          <TextBlock Text="{Binding Path=NumberOfRevisions}"/>
+﻿<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:localConverters="clr-namespace:RepoInsight.Avalonia.View.Converter;assembly=RepoInsight.Avalonia.View"
+    xmlns:model="clr-namespace:RepoInsight.BusinessLogic;assembly=RepoInsight.BusinessLogic"
+    Design.Height="400"
+    Design.Width="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <localConverters:MathOperationConverter x:Key="DivisionConverter" Operator="/" />
+
+            <localConverters:DoubleToThicknessConverter x:Key="MultipliedDoubleToThicknessConverter" Multiplier="2.5" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.DataTemplates>
+        <DataTemplate DataType="model:FileInfo">
+            <Border
+                Width="{Binding Path=LinesOfCode, Converter={StaticResource DivisionConverter}, ConverterParameter=10}"
+                Height="{Binding Path=LinesOfCode, Converter={StaticResource DivisionConverter}, ConverterParameter=10}"
+                MaxWidth="500"
+                MaxHeight="500"
+                Margin="2"
+                Background="Beige"
+                BorderBrush="#456789"
+                BorderThickness="{Binding Path=LeadingSpacesPerLine, Converter={StaticResource MultipliedDoubleToThicknessConverter}}"
+                ToolTip.Tip="{Binding Path=FileName}">
+                <StackPanel>
+                    <TextBlock Text="{Binding Path=FileName}" />
+                    <TextBlock Text="{Binding Path=LinesOfCode}" />
+                    <TextBlock Text="{Binding Path=NumberOfRevisions}" />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </UserControl.DataTemplates>
+    <DockPanel>
+        <StackPanel
+            Background="#120088"
+            DockPanel.Dock="Top"
+            Orientation="Horizontal">
+            <TextBlock
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="Repository Path" />
+            <TextBox MinWidth="250" Text="{Binding Path=DirectoryPath, Mode=TwoWay}" />
+            <Button Command="{Binding Path=LoadFileInfosCommand, Mode=OneWay}" Content="Load Repository" />
         </StackPanel>
-      </Border>
-    </DataTemplate>
-  </UserControl.DataTemplates>
-  <DockPanel>
-  <StackPanel 
-    DockPanel.Dock="Top"
-    Background="#120088"
-    Orientation="Horizontal">
-    <TextBlock 
-      Foreground="White" 
-      Text="Repository Path"
-      VerticalAlignment="Center"/>
-    <TextBox 
-      Text="{Binding Path=DirectoryPath, Mode=TwoWay}"
-      MinWidth="250"/>
-    <Button Content="Load Repository"
-            Command="{Binding Path=LoadFileInfosCommand, Mode=OneWay}"/>
-  </StackPanel>
-    <Border 
-      BorderBrush="#124599" 
-      BorderThickness="2">
-      <ScrollViewer 
-        HorizontalScrollBarVisibility="Disabled"
-        VerticalScrollBarVisibility="Auto">      
-        <ItemsControl x:Name="FilesItemsControl"
-                  Items="{Binding Path=FileInfos, Mode=TwoWay}">
-          <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>        
-              <WrapPanel Orientation="Horizontal"/>
-            </ItemsPanelTemplate>
-          </ItemsControl.ItemsPanel>  
-        </ItemsControl>
-      </ScrollViewer>
-    </Border>
-  </DockPanel>
+        <Border BorderBrush="#124599" BorderThickness="2">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="FilesItemsControl" Items="{Binding Path=FileInfos, Mode=TwoWay}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+    </DockPanel>
 </UserControl>
