@@ -44,7 +44,7 @@ namespace RepoInsight.BusinessLogic
             {
                 foreach (ICommit commit in commits)
                 {
-                    if (commit.CommitedFiles.Contains(fileInfo.FileName))
+                    if (commit.CommitedFiles.Contains(fileInfo.Name))
                     {
                         fileInfo.NumberOfRevisions++;
                     }
@@ -79,7 +79,7 @@ namespace RepoInsight.BusinessLogic
             FileInfo fileInfo = new FileInfo()
             {
                 LinesOfCode = lineCount,
-                FileName = fileName,
+                Name = fileName,
                 NumberOfLeadingSpaces = leadingWhitespaceCount
             };
 
