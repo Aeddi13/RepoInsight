@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace RepoInsight.BusinessLogic.Repository
@@ -61,5 +62,14 @@ namespace RepoInsight.BusinessLogic.Repository
             set;
         }
 
+        public void UpdateProperties()
+        {
+            foreach(IRepoObjectInfo subObject in SubObjects)
+            {
+                subObject.UpdateProperties();
+            }
+
+            LinesOfCode = SubObjects.Sum(sub => sub.LinesOfCode);
+        }
     }
 }

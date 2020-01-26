@@ -72,6 +72,11 @@ namespace RepoInsight.BusinessLogic
             LeadingSpacesPerLine = ((double)NumberOfLeadingSpaces) / ((double)LinesOfCode);
         }
 
+        public void UpdateProperties()
+        {
+
+        }
+
 
         /// <summary>
         /// The name of the file.

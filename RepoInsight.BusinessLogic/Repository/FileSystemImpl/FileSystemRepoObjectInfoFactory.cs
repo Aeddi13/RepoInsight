@@ -62,6 +62,7 @@ namespace RepoInsight.BusinessLogic.Repository.FileSystemImpl
             folderInfo.Name = folderName;
 
             folderInfo.SubObjects = CreateObjectInfos(folderName);
+            folderInfo.UpdateProperties();
 
             return folderInfo;
         }

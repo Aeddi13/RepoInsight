@@ -24,5 +24,7 @@ namespace RepoInsight.BusinessLogic.Repository
         {
             get;
         }
+
+        void UpdateProperties();
     }
 }
