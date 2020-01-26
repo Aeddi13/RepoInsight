@@ -7,6 +7,19 @@ namespace RepoInsight.BusinessLogic.Repository.FileSystemImpl
 {
     public class FileSystemRepoObjectInfoFactory : IRepoObjectInfoFactory
     {
+        List<string> excludedFileEndings = new List<string>
+        {
+            ".dll"
+        };
+
+        List<string> excludedFolders = new List<string>
+        {
+            "\\bin\\",
+            "\\obj\\",
+            "\\debug\\",
+            "\\build\\",
+        };
+
         /// <summary>
         /// Creates a list of <see cref="IRepoObjectInfo"/> for the given repository.
         /// </summary>
@@ -22,6 +35,11 @@ namespace RepoInsight.BusinessLogic.Repository.FileSystemImpl
             string[] subdirectories = Directory.GetDirectories(repositoryPath);
             foreach (string directory in subdirectories)
             {
+                if (ExcludeThisFolder(directory))
+                {
+                    continue;
+                }
+
                 FolderInfo folderInfo = CreateFolderInfo(directory);
                 objectInfos.Add(folderInfo);
             }
@@ -30,12 +48,42 @@ namespace RepoInsight.BusinessLogic.Repository.FileSystemImpl
             string[] fileNames = Directory.GetFiles(repositoryPath);
             foreach (string fileName in fileNames)
             {
-                FileInfo fileInfo = CreateFileInfo(fileName);
+                if (ExcludeThisFile(fileName))
+                {
+                    continue;
+                }
 
+                FileInfo fileInfo = CreateFileInfo(fileName);
                 objectInfos.Add(fileInfo);
             }
 
             return objectInfos;
+        }
+
+        private bool ExcludeThisFolder(string folderName)
+        {
+            foreach (string excludedFolder in excludedFolders)
+            {
+                if (folderName.Contains(excludedFolder))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool ExcludeThisFile(string folderName)
+        {
+            foreach (string excludedFileEnding in excludedFileEndings)
+            {
+                if (folderName.EndsWith(excludedFileEnding))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private FileInfo CreateFileInfo(string fileName)
