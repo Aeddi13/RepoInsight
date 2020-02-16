@@ -11,3 +11,9 @@
      steps:
        - checkout
        - run: dotnet build
+       
+workflows:
+  main:
+    jobs:
+      - build:
+          context: SonarCloud
