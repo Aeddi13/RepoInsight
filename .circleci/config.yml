@@ -12,8 +12,8 @@
        - checkout
        - run: dotnet build
        
-workflows:
-  main:
-    jobs:
-      - build:
-          context: SonarCloud
+  workflows:
+    main:
+      jobs:
+        - build:
+            context: SonarCloud
