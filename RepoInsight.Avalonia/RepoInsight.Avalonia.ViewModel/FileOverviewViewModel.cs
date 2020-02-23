@@ -15,6 +15,11 @@ namespace RepoInsight.Avalonia.ViewModel
             {
                 this.LoadFileInfos();
             }, param => true);
+
+            _selectObjectInfoCommand = new RelayCommand(param =>
+            {
+                this.SelectObjectInfo(param);
+            }, param => true);
         }
 
         private List<IRepoObjectInfo> _fileInfos;
@@ -60,6 +65,28 @@ namespace RepoInsight.Avalonia.ViewModel
             get { return _loadFileInfosCommand; }
         }
 
+        private ICommand _selectObjectInfoCommand;
+
+        public ICommand SelectObjectInfoCommand
+        {
+            get { return _selectObjectInfoCommand; }
+        }
+
+        private IRepoObjectInfo _currentRepoObjectInfo;
+
+        private IRepoObjectInfo CurrentRepoObjectInfo
+        {
+            get { return _currentRepoObjectInfo; }
+            set
+            {
+                _currentRepoObjectInfo = value;
+                RaisePropertyChanged();
+
+                this.FileInfos = _currentRepoObjectInfo.SubObjects;
+                this.FileName = _currentRepoObjectInfo.Name;
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged([CallerMemberName] string propertyName = null)
@@ -79,16 +106,21 @@ namespace RepoInsight.Avalonia.ViewModel
             }
 
             FileSystemRepoObjectInfoFactory factory = new FileSystemRepoObjectInfoFactory();
-            IRepoObjectInfo repoInfo = factory.CreateObjectInfos(DirectoryPath);
+            CurrentRepoObjectInfo = factory.CreateObjectInfos(DirectoryPath);
 
             //FileInfo[] fileInfos = FileInfoFactory.CreateFilesForDirectory(DirectoryPath);
 
             //List<ICommit> GitLog = GitCommitFactory.GetCommitsForRepositoryPath(DirectoryPath);
 
             //FileInfoFactory.AddCommitsToFileInfos(fileInfos, GitLog.ToArray());
+        }
 
-            this.FileInfos = repoInfo.SubObjects;
-            this.FileName = repoInfo.Name;
+        private void SelectObjectInfo(object objectInfo)
+        {
+            if (objectInfo is IRepoObjectInfo repoObjectInfo)
+            {
+                CurrentRepoObjectInfo = repoObjectInfo;
+            }
         }
     }
 }
