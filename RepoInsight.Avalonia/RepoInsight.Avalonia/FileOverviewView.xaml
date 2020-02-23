@@ -44,6 +44,15 @@
             <TextBox MinWidth="250" Text="{Binding Path=DirectoryPath, Mode=TwoWay}" />
             <Button Command="{Binding Path=LoadFileInfosCommand, Mode=OneWay}" Content="Load Repository" />
         </StackPanel>
+        <StackPanel
+            Background="#99FFFF"
+            DockPanel.Dock="Right"
+            Orientation="Horizontal">
+            <TextBlock
+                VerticalAlignment="Center"
+                Foreground="Black"
+                Text="{Binding Path=FileName, Mode=TwoWay}" />
+        </StackPanel>
         <Border BorderBrush="#124599" BorderThickness="2">
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                 <ItemsControl x:Name="FilesItemsControl" Items="{Binding Path=FileInfos, Mode=TwoWay}">

@@ -29,6 +29,18 @@ namespace RepoInsight.Avalonia.ViewModel
             }
         }
 
+        private string _fileName;
+
+        public string FileName
+        {
+            get { return _fileName; }
+            set
+            {
+                _fileName = value;
+                RaisePropertyChanged();
+            }
+        }
+
         private string _directoryPath;
 
         public string DirectoryPath
@@ -67,7 +79,7 @@ namespace RepoInsight.Avalonia.ViewModel
             }
 
             FileSystemRepoObjectInfoFactory factory = new FileSystemRepoObjectInfoFactory();
-            List<IRepoObjectInfo> newFileInfos = factory.CreateObjectInfos(DirectoryPath);
+            IRepoObjectInfo repoInfo = factory.CreateObjectInfos(DirectoryPath);
 
             //FileInfo[] fileInfos = FileInfoFactory.CreateFilesForDirectory(DirectoryPath);
 
@@ -75,7 +87,8 @@ namespace RepoInsight.Avalonia.ViewModel
 
             //FileInfoFactory.AddCommitsToFileInfos(fileInfos, GitLog.ToArray());
 
-            this.FileInfos = newFileInfos;
+            this.FileInfos = repoInfo.SubObjects;
+            this.FileName = repoInfo.Name;
         }
     }
 }
