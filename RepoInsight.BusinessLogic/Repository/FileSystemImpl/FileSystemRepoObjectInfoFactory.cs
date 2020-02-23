@@ -25,14 +25,17 @@ namespace RepoInsight.BusinessLogic.Repository.FileSystemImpl
         };
 
         /// <summary>
-        /// Creates a list of <see cref="IRepoObjectInfo"/> for the given repository.
+        /// Creates an <see cref="IRepoObjectInfo"/> for the given repository.
         /// </summary>
         /// <param name="repositoryPath">
         /// The path of the repository on the file system.
         /// </param>
-        /// <returns>A list of <see cref="IRepoObjectInfo"/>.</returns>
-        public List<IRepoObjectInfo> CreateObjectInfos(string repositoryPath)
+        /// <returns>An <see cref="IRepoObjectInfo"/>.</returns>
+        public IRepoObjectInfo CreateObjectInfos(string repositoryPath)
         {
+            FolderInfo repoInfo = new FolderInfo();
+            repoInfo.Name = repositoryPath;
+
             List<IRepoObjectInfo> objectInfos = new List<IRepoObjectInfo>();
 
             // add the fileInfos from the subdirectories
@@ -61,7 +64,10 @@ namespace RepoInsight.BusinessLogic.Repository.FileSystemImpl
                 objectInfos.Add(fileInfo);
             }
 
-            return objectInfos;
+            repoInfo.SubObjects = objectInfos;
+            repoInfo.UpdateProperties();
+
+            return repoInfo;
         }
 
         private bool ExcludeThisFolder(string folderName)

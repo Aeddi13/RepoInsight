@@ -10,13 +10,13 @@ namespace RepoInsight.BusinessLogic.Repository
     public interface IRepoObjectInfoFactory
     {
         /// <summary>
-        /// Creates a list of <see cref="IRepoObjectInfo"/> for the given repository.
+        /// Creates an <see cref="IRepoObjectInfo"/> for the given repository.
         /// </summary>
         /// <param name="repositoryPath">
         /// The path to the repository.
         /// This can be a path on the file system, an url or even a single file depending on the implementation of the factory.
         /// </param>
-        /// <returns>A list of <see cref="IRepoObjectInfo"/>.</returns>
-        List<IRepoObjectInfo> CreateObjectInfos(string repositoryPath);
+        /// <returns>An <see cref="IRepoObjectInfo"/>.</returns>
+        IRepoObjectInfo CreateObjectInfos(string repositoryPath);
     }
 }
