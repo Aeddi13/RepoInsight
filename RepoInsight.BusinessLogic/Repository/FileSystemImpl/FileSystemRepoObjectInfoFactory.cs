@@ -116,10 +116,7 @@ namespace RepoInsight.BusinessLogic.Repository.FileSystemImpl
 
         private FolderInfo CreateFolderInfo(string folderName)
         {
-            FolderInfo folderInfo = new FolderInfo();
-            folderInfo.Name = folderName;
-
-            folderInfo.SubObjects = CreateObjectInfos(folderName);
+            FolderInfo folderInfo = CreateObjectInfos(folderName) as FolderInfo;
             folderInfo.UpdateProperties();
 
             return folderInfo;
