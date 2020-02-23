@@ -1,4 +1,5 @@
 ﻿using RepoInsight.BusinessLogic.Repository;
+using System.Collections.Generic;
 
 namespace RepoInsight.BusinessLogic
 {
@@ -77,6 +78,11 @@ namespace RepoInsight.BusinessLogic
 
         }
 
+        public List<IRepoObjectInfo> SubObjects
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// The name of the file.

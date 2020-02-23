@@ -25,6 +25,11 @@ namespace RepoInsight.BusinessLogic.Repository
             get;
         }
 
+        List<IRepoObjectInfo> SubObjects
+        {
+            get;
+        }
+
         void UpdateProperties();
     }
 }
